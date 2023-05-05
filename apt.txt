@@ -25,5 +25,12 @@ sudo apt remove tomcat9 - 톰캣을 지우지만 설정 파일을 지우지 않�
 sudo apt --purge remove tomcat9 - 설정 파일까지 모두 지움
 https://launchpad.net/ubuntu/+ppas 접속 -> 원하는 프로그램 검색 - apt에 없는 프로그램 다운가능
 기존 apt 저장소에 없는 걸 ppa 저장소를 추가하여 apt에서 찾을 수 있음
+
 sudo add-apt-repository ppa:rivergod/tomcat8.5 - ppa저장소에 rivergod이라는 개인 사용자가 올린 tomcat8.5를 apt 저장소에 추가
+단, 우분투 버전이 달라 안됨으로 sudo add-apt-repository --remove:rivergod/tomcat8.5으로 지운후
+sudo add-apt-repository ppa:ttyrnpuu/tomcat로 설치
+
 cd /etc/apt -> cat sources.list - /etc/apt에 있는 sources.list 정보확인(sources.list - apt 저장소에 있는 프로그램 주소 목록, sources.list.d - ppa 저장소 주소 목록)
+sudo apt update - ppa 저장소에 있는 프로그램을 apt 저장소에도 등록(우분투 버전에 따른 지원 범위가 달라서 안될 수도 있기에 버전에 맞게 가져와야 함)
+sudo apt install tomcat8 - tomcat8 설치
+lsb_release -a - 우분투 버전과 코드명 확인
