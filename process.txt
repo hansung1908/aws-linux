@@ -4,3 +4,25 @@ cpu 1개 - 일하는 노동자 1명, 톰캣은 서버 구동을 위해 프로세
 여러 프로세스를 스레드 단위로 처리하면서 옮겨다니는 행위를 문맥 교환이라고 함(a을 하다 b로 가면 a의 진행 상황을 저장 이후 b가 끝나면 꺼내와서 실행)
 중요도에 따라 스레드의 수명이 달라짐(중요한 일은 수명이 김)
 
+apt 명령어로 설치 시, 서비스에 등록됨(실행파일을 직접 찾아서 실행할 필요 x)
+service --status-all - 서비스 목록 확인(+ - 실행중, - - 실행중 x, 지금은 서비스 명령어를 잘 안씀)
+sudo service tomcat8 stop
+sudo service tomcat8 start
+sudo service tomcat8 restart
+
+서비스 명령어로는 모든 시스템을 다루기 어려워 systemctl을 사용
+sudo systemctl list-unit-files - systemctl 리스트 확인
+sudo systemctl list-unit-files | grep tomcat8 - systemctl 리스트에 있는 tomcat8만 가져와서 보기
+sudo systemctl status tomcat8 - tomcat8 상태 확인(q, crtl+c - 나가기)
+sudo systemctl stop tomcat8
+sudo systemctl start tomcat8
+
+데몬 프로세스(tomcat8)
+종료가 안될 경우, 강제 종료
+서비스로 등록이 안된 프로세스(직접 압축풀고 실행, 등록이 안됬다면 /etc/init.d/tomcat8 직접 실행)
+kill -l - 강제 종료 옵션 확인
+kill -2 pid(sigint - ctrl+c)
+kill -9 pid(sigkill - 강제 종료, 안전 종료x)
+kill -15 pid(sigterm - 안전 종료)
+kill로 프로세스를 종료하면 프로세스 자체는 종료되어 포트도 사라지지만 systemctl에선 일시정지로 판단
+sudo systemctl restrat tomcat8 - 일시정지를 푸는 다시 시작
