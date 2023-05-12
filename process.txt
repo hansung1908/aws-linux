@@ -23,6 +23,12 @@ sudo systemctl start tomcat8
 kill -l - 강제 종료 옵션 확인
 kill -2 pid(sigint - ctrl+c)
 kill -9 pid(sigkill - 강제 종료, 안전 종료x)
-kill -15 pid(sigterm - 안전 종료)
+kill -15 pid(sigterm - 안전 종료, systemctl에선 자신의 명령어로 종료된 것이 아니기에 일시중지 상태로 전환되어 restart로 다시 실행해야 한다.)
 kill로 프로세스를 종료하면 프로세스 자체는 종료되어 포트도 사라지지만 systemctl에선 일시정지로 판단
 sudo systemctl restrat tomcat8 - 일시정지를 푸는 다시 시작
+
+os script를 통해 자바의 if 기능 구현
+ps -ef | grep tomcat8 | grep -v grep | awk '{print $1}' - 프로세스 목록 출력하는데 tomcat8이라 써있는 걸 가져오고 그 중에서 grep이라는 패턴이 있는건 제외시키고 출력되는 값을 토큰으로 쪼갯을때 첫번째 필드값만 출력(grep -v - 지정된 패턴과 일치하는 항목 제외, awk - 공백을 기준으로 해당 정보를 토큰화시킴, 각 토큰은 1번지($1)를 시작으로 차곡차곡 쌓임($2는 pid로 프로세스 아이디))
+sudo kill `ps -ef | grep tomcat8 | grep -v grep | awk '{print $2}'` - 해당 프로세스를 종료(백틱(`)  -  치환명령어로 감싼 부분을 실행결과로 치환)
+sudo ./tomcat8 stop - 현재 파일에 있는 tomcat8 중지(./ - 현재 파일)
+sudo ./tomcat8 start
