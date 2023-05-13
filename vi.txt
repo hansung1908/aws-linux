@@ -1,0 +1,2 @@
+vi a.txt - vi 에디터 사용
+vi 명령어 - i - insert 모드, esc - 모드 취소, :wq - 저장 후 종료
