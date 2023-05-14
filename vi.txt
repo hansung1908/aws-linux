@@ -1,2 +1,6 @@
-vi a.txt - vi 에디터 사용
-vi 명령어 - i - insert 모드, esc - 모드 취소, :wq - 저장 후 종료
+vi a.txt - vi 에디터 사용(처음 들어가면 일반 모드)
+
+i - insert 모드, esc - 모드 취소, :wq - 저장 후 종료
+마우스 우클릭 - 외부코드 붙혀넣기, shift + v - 블럭지정, x - 현재 커서의 문자 삭제
+yy - 현재 행 복사, dd - 현재 행 삭제, p - 붙혀넣기, u - undo 기능, ctrl + r - redo 기능
+home - 행의 맨 처음 이동, $ - 행 맨끝 이동, ctrl + b - 업스크롤, shift + f - 다운스크롤
