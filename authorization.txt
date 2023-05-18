@@ -1,0 +1,16 @@
+su root - 최고관리자 실행(이때 비밀번호 확인)
+sudo passwd root - 패스워드 생성(root1234)
+su ubuntu - 일반유저 실행
+
+-rw-r--r-- 1 root root test1.txt
+그룹은 자신이 만든 파일이나 폴더를 다른 사용자가 이용할 수 있도록 권한을 부여한 사람들을 지칭
+첫 - - 파일(d폴더)
+rw- - root 권한(r : 4(read), w : 2(write), - : 0(원래 x(execute)자리이지만 불가능이기에 -) - 읽기, 쓰기 가능, 실행 불가능)
+첫 r-- - root 그룹 권한 (r : 4(read), - : 0(write), - : 0(execute) - 읽기만 가능)
+뒷 r-- - 모든 사용자 권한 (r : 4(read), - : 0(), - : 0(execute) - 읽기만 가능)
+첫 root - 소유자, 뒷 root - 그룹
+644 권한이라고 함(7 - 실행 가능, 6 - 쓰기 가능, 4 - 읽기 가능)
+sudo chmod 646 test1.txt - 해당 파일에 권한을 646으로 바꿈(최고 권한으로만 수정됨으로 sudo붙힘, -rw-r--rw-)
+sudo chmod 777 test1.txt - 해당 파일의 모든 권한을 부여(-rwxrwxrwx)
+sudo chown root:ubuntu test2.txt - 해당 파일의 그룹을 ubuntu로 변경(-rw-rw-r-- 1 root ubuntu test2.txt, ubuntu 유저는 쓰기 가능)
+
