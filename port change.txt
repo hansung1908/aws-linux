@@ -1,0 +1,8 @@
+sudo find / -name tomcat - tomcat이란 이름을 가진 파일을 최상단부터 찾기\
+cd /var/lib/tomcat8/webapps/ROOT - 해당 루트로 이동(index.html 파일)
+sudo chmod u+x,g+wx,o+x index.html - index 파일의 권한 변경(u - user, g - group, o - other, + - 추가, = - 덮어씌우기, 컴마 뒤에 띄어쓰기 x)
+vi index.html - body 내용 삭제 후 h1태크에 Tomcat 8000 port라고 변경
+cd /var/lib/tomcat8/conf - server.xml 파일 변경을 위한 이동
+sudo vi server.xml - 권한 변경 없이 최고 권한으로 변경, port=8000으로 변경
+sudo service tomcat8 restart - 포트 변경에 대한 설정을 위해 재시작
+aws 사이트 접속 -> ec2 -> 인스턴스 -> 보안 -> 보안 그룹 밑 링크 클릭 -> 인바운드 규칙 편집 -> 규칙 추가(8000포트, anywhere-ipv4) - 8000포트 방화벽 해제
