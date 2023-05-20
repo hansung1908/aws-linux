@@ -1,0 +1,10 @@
+sudo find / -name catalina.out - log 파일
+cd /var/log/tomcat8 - 목적지 이동
+sudo tail -f catalina.out - catalina.out의 마지막 부분을 실시간으로 표시
+
+stdin - 표준 입력 스트림, stdout - 표준 출력 스트림, stderr - 오류 출력 스트림
+sudo touch mylog.out - 출력 로그 파일 생성
+sudo chmod 777 mylog.out - 출력을 위한 권한 개방
+sudo tail -f catalina.out > mylog.out - 출력을 mylog.out으로 이동(> - 표준입출력 변경시 사용)
+현재 탭 우클릭 -> duplicate tab -> 톰캣8 재시작 -> 로그 확인
+표준 입력 - 0, 표준 출력 - 1, 표준 에러 - 2
