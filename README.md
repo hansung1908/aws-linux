@@ -26,3 +26,5 @@
 
 - 22번 포트로 보통 접속하는데 ssh라는 secure shell을 이용한다는 것(CLI: command line interface) / 
 이때 비밀번호와 같은 개인정보도 오가므로 보안적인 부분도 필요하므로 그냥 shell이 아닌 secure shell
+
+- 스프링 부트 프로젝트 배포 : 로컬 컴퓨터에서 만든 프로젝트를 운영 컴퓨터에 올리는 작업 + 진행 중 문제점 파악 및 해결 + github 업로드 + 환경 세팅(jdk) 및 실행
